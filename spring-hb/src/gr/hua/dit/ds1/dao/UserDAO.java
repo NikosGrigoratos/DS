@@ -6,6 +6,6 @@ import gr.hua.dit.ds1.entity.User;
 
 public interface UserDAO {
 	public List<User> getUsers();
-	public String addUser(String id);
+	public String addUser(User user);
 	public String deleteUser(String id);
 }

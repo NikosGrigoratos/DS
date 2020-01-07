@@ -1,15 +1,11 @@
 package gr.hua.dit.ds1.controller;
 
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import gr.hua.dit.ds1.dao.CustomerDAO;
 import gr.hua.dit.ds1.dao.UserDAO;
 import gr.hua.dit.ds1.entity.User;
 
@@ -46,8 +42,14 @@ public class UserController {
 	
 	@RequestMapping("/addProcess")
 	public String addNewUser(HttpServletRequest request, Model model) {
-		String theName = request.getParameter("userToAdd");
-		userDAO.addUser(theName);
+		String name = request.getParameter("username");
+		String pass = request.getParameter("pass");
+		String fname = request.getParameter("firstName");
+		String sname = request.getParameter("secondName");
+		String email = request.getParameter("email");
+		User user = new User(name, pass, fname, sname, email);
+		System.out.println(user.toString());
+		userDAO.addUser(user);
 		return null;
 	}
 }

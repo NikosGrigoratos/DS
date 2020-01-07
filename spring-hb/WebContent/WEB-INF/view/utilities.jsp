@@ -26,9 +26,9 @@ Admin Utilities:
 <br/>
 <a href = "<c:url value = "/user/list"/>">show Users</a>
 <br/>
-<a href = "<c:url value = "/user/add"/>">delete user</a>
+<a href = "<c:url value = "/user/delete"/>">delete user</a>
 <br/>
-<a href = "<c:url value = "/user/delete"/>">add user</a>
+<a href = "<c:url value = "/user/add"/>">add user</a>
 </sec:authorize>
 </body>
 </html>

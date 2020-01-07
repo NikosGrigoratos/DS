@@ -8,10 +8,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import gr.hua.dit.ds1.entity.CompanyApplication;
 import gr.hua.dit.ds1.entity.StudentApplication;
 import gr.hua.dit.ds1.entity.User;
 
+@Repository
 public class StudentApplicationDAOImpl implements StudentApplicationDAO {
 
 	@Autowired
@@ -44,8 +47,10 @@ public class StudentApplicationDAOImpl implements StudentApplicationDAO {
 	@Override
 	@Transactional
 	public String deleteStudentApp(String id) {
-		//need to do queries here
-		return null;
+		Session currentSession = sessionFactory.getCurrentSession();
+		StudentApplication stapp = currentSession.get(StudentApplication.class, id);
+		currentSession.delete(stapp);
+        return "Successful";
 	}
 
 }

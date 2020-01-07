@@ -8,7 +8,11 @@
 </head>
 <body>
 	<form action="addProcess" method="GET">
-		<input type="text" name="userToAdd" placeholder="What's the ID for the user?"/>
+		<input type="text" name="username" placeholder="Username"/>
+		<input type="text" name="pass" placeholder="Password"/>
+		<input type="text" name="firstName" placeholder="Frist Name"/>
+		<input type="text" name="secondName" placeholder="Second Name"/>
+		<input type="text" name="email" placeholder="Email"/>
 		<input type="submit" />
 	</form>
 </body>

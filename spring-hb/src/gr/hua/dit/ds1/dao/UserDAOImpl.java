@@ -8,8 +8,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import gr.hua.dit.ds1.entity.User;
 
+@Repository
 public class UserDAOImpl implements UserDAO {
 	@Autowired
     private SessionFactory sessionFactory;
@@ -34,15 +37,18 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	@Transactional
-	public String addUser(String id) {
-		// need to to the queries.
+	public String addUser(User user) {
+		Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.save(user);
 		return null;
 	}
 
 	@Override
 	@Transactional
 	public String deleteUser(String id) {
-		// need to to the queries.
-		return null;
+		Session currentSession = sessionFactory.getCurrentSession();
+		User user = currentSession.get(User.class, id);
+		currentSession.delete(user);
+		return "User Deleted";
 	}
 }
