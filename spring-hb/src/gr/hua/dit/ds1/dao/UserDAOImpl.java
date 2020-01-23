@@ -24,7 +24,7 @@ public class UserDAOImpl implements UserDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         
         // create a query
-        Query<User> query = currentSession.createQuery("from Customer", User.class);
+        Query<User> query = currentSession.createQuery("from User", User.class);
         
         
         // execute the query and get the results list

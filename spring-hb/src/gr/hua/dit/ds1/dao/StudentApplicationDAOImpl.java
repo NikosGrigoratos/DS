@@ -46,11 +46,11 @@ public class StudentApplicationDAOImpl implements StudentApplicationDAO {
 
 	@Override
 	@Transactional
-	public String deleteStudentApp(String id) {
+	public String deleteStudentApp(int id) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		StudentApplication stapp = currentSession.get(StudentApplication.class, id);
 		currentSession.delete(stapp);
-        return "Successful";
+        return null;
 	}
 
 }

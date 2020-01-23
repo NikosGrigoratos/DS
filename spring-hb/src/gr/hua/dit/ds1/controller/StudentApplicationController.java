@@ -48,7 +48,8 @@ public class StudentApplicationController {
 	@RequestMapping("/deleteProcess")
 	public String deleteStudentApp(HttpServletRequest request, Model model) {
 		String theApp = request.getParameter("studentAppToDel");
-		studentAppsDAO.deleteStudentApp(theApp);
-		return null;
+		int result = Integer.parseInt(theApp);
+		studentAppsDAO.deleteStudentApp(result);
+		return "delete-done";
 	}
 }
