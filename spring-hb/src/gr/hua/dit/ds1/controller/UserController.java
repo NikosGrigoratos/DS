@@ -3,11 +3,13 @@ package gr.hua.dit.ds1.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import gr.hua.dit.ds1.dao.UserDAO;
 import gr.hua.dit.ds1.entity.User;
+
 
 @Controller
 @RequestMapping("/user")
@@ -36,8 +38,9 @@ public class UserController {
 	@RequestMapping("/deleteProcess")
 	public String removeUser(HttpServletRequest request, Model model) {
 		String theName = request.getParameter("userToDelete");
-		userDAO.deleteUser(theName);
-		return null;
+		int result = Integer.parseInt(theName);
+		userDAO.deleteUser(result);
+		return "delete-done";
 	}
 	
 	@RequestMapping("/addProcess")
@@ -47,9 +50,14 @@ public class UserController {
 		String fname = request.getParameter("firstName");
 		String sname = request.getParameter("secondName");
 		String email = request.getParameter("email");
-		User user = new User(name, pass, fname, sname, email);
+		String auth = request.getParameter("ROLE_USER");
+		
+		String encodedPass = new BCryptPasswordEncoder().encode(pass);
+		
+		User user = new User(name, encodedPass, fname, sname, email, auth, true);
 		System.out.println(user.toString());
 		userDAO.addUser(user);
-		return null;
+		model.addAttribute("username", user.getUsername());
+		return "user-added";
 	}
 }

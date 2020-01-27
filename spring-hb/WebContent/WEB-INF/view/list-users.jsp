@@ -10,7 +10,7 @@
 <body>
         <div id="wrapper">
                 <div id="header">
-                        <h2>CRM - Customer Relationship Manager</h2>
+                        <h2>Users</h2>
                 </div>
         </div>
 
@@ -19,19 +19,21 @@
                         <!--  add our html table here -->
                         <table>
                                 <tr>
-                                		<th>id</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Email</th>
+                                        <th>ID</th>
+                                        <th>Company</th>
+                                        <th>Field</th>
+                                        <th>Position</th>
                                 </tr>
                                 <!-- loop over and print our customers -->
                                 <c:forEach var="tempUser" items="${users}">
 
                                         <tr>
-                                        		<td>${tempUser.id}</td>
+                                                <td>${tempUser.id}</td>
+                                                <td>${tempUser.username}</td>
                                                 <td>${tempUser.firstName}</td>
-                                                <td>${tempUser.lastName}</td>
+                                                <td>${tempUser.secondName}</td>
                                                 <td>${tempUser.email}</td>
+                                                <td>${tempUser.authority}</td>
                                         </tr>
                                 </c:forEach>
                         </table>

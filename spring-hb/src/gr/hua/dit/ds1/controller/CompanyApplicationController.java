@@ -23,7 +23,7 @@ public class CompanyApplicationController {
 		List<CompanyApplication> companyApps = companyAppsDAO.getCompanyApps();
         
         // add the customers to the model
-        model.addAttribute("CompanyApps", companyApps);
+        model.addAttribute("companyApps", companyApps);
         	
             return "list-company-apps";
     }
@@ -48,7 +48,8 @@ public class CompanyApplicationController {
 	@RequestMapping("/deleteProcess")
 	public String deleteCompanyApp(HttpServletRequest request, Model model) {
 		String theApp = request.getParameter("companyAppToDel");
-		companyAppsDAO.deleteCompanyApp(theApp);
-		return null;
+		int result = Integer.parseInt(theApp);
+		companyAppsDAO.deleteCompanyApp(result);
+		return "delete-done";
 	}
 }

@@ -45,11 +45,11 @@ public class CompanyApplicationDAOImpl implements CompanyApplicationDAO {
 
 	@Override
 	@Transactional
-	public String deleteCompanyApp(String id) {
+	public String deleteCompanyApp(int id) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		CompanyApplication cpapp = currentSession.get(CompanyApplication.class, id);
 		currentSession.delete(cpapp);
-        return "Successful";
+		return null;
 	}
 
 }

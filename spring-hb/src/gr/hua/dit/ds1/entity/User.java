@@ -31,16 +31,24 @@ public class User {
 	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "authority")
+	private String authority;
+	
+	@Column(name = "enabled")
+	private boolean enabled;
+	
 	public User() {
 		
 	}
 
-	public User(String username, String password, String firstName, String secondName, String email) {
+	public User(String username, String password, String firstName, String secondName, String email, String authority, boolean enabled) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.secondName = secondName;
 		this.email = email;
+		this.authority = authority;
+		this.enabled = enabled;
 	}
 
 	public int getId() {
@@ -89,6 +97,23 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	@Override

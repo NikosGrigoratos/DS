@@ -45,10 +45,10 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	@Transactional
-	public String deleteUser(String id) {
+	public String deleteUser(int id) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		User user = currentSession.get(User.class, id);
 		currentSession.delete(user);
-		return "User Deleted";
+		return null;
 	}
 }
