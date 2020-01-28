@@ -18,29 +18,30 @@ import gr.hua.dit.ds1.entity.User;
 public class StudentApplicationDAOImpl implements StudentApplicationDAO {
 
 	@Autowired
-    private SessionFactory sessionFactory;
-	
+	private SessionFactory sessionFactory;
+
 	@Override
 	@Transactional
 	public List<StudentApplication> getStudentApps() {
 		// get current hibernate session
-        Session currentSession = sessionFactory.getCurrentSession();
-        
-        // create a query
-        Query<StudentApplication> query = currentSession.createQuery("from StudentApplication", StudentApplication.class);
-        
-        
-        // execute the query and get the results list
-        List<StudentApplication> studentApps = query.getResultList();
-                        
-        //return the results
-        return studentApps;
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		// create a query
+		Query<StudentApplication> query = currentSession.createQuery("from StudentApplication",
+				StudentApplication.class);
+
+		// execute the query and get the results list
+		List<StudentApplication> studentApps = query.getResultList();
+
+		// return the results
+		return studentApps;
 	}
 
 	@Override
 	@Transactional
-	public String addStudentApp(String id) {
-		//need to do queries here
+	public StudentApplication addStudentApp(StudentApplication id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.save(id);
 		return null;
 	}
 
@@ -50,7 +51,7 @@ public class StudentApplicationDAOImpl implements StudentApplicationDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		StudentApplication stapp = currentSession.get(StudentApplication.class, id);
 		currentSession.delete(stapp);
-        return null;
+		return null;
 	}
 
 }

@@ -41,7 +41,7 @@ public class StudentApplicationController {
 	@RequestMapping("/addProcess")
 	public String addStudentApp(HttpServletRequest request, Model model) {
 		String theApp = request.getParameter("studentAppToAdd");
-		studentAppsDAO.addStudentApp(theApp);
+		//studentAppsDAO.addStudentApp(theApp);
 		return null;
 	}
 	

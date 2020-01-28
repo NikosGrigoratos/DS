@@ -38,8 +38,9 @@ public class CompanyApplicationDAOImpl implements CompanyApplicationDAO {
 
 	@Override
 	@Transactional
-	public String addCompanyApp(String id) {
-		//need to do queries here later on
+	public CompanyApplication addCompanyApp(CompanyApplication id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.save(id);
 		return null;
 	}
 

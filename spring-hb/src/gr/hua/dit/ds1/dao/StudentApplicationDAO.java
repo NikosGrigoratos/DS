@@ -7,6 +7,6 @@ import gr.hua.dit.ds1.entity.StudentApplication;
 
 public interface StudentApplicationDAO {
 	public List<StudentApplication> getStudentApps();
-	public String addStudentApp(String id);
+	public StudentApplication addStudentApp(StudentApplication id);
 	public String deleteStudentApp(int id);
 }
