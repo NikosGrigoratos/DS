@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Deletion succesful!
+Student: ${it} assigned to company with company application ID: ${cpid}! <br>
 <a href="/spring-hb/utilities">Go back to utilities</a>
 </body>
 </html>

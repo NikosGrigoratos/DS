@@ -19,7 +19,7 @@ User Utilities:
 <br/>
 <a href = "<c:url value = "/companyApps/delete"/>">delete company application</a>
 <br/>
-<a href = "<c:url value = ""/>">assign job to student</a>
+<a href = "<c:url value = "/assignedjobs/assign"/>">assign job to student</a>
 <br/>
 <sec:authorize access="hasRole('ADMIN')">
 Admin Utilities:

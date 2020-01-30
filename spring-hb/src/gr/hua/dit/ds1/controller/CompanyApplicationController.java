@@ -41,7 +41,7 @@ public class CompanyApplicationController {
 	@RequestMapping("/addProcess")
 	public String addCompanyApp(HttpServletRequest request, Model model) {
 		String theApp = request.getParameter("companyAppToAdd");
-		companyAppsDAO.addCompanyApp(theApp);
+		//companyAppsDAO.addCompanyApp(theApp);
 		return null;
 	}
 	

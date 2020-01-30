@@ -37,6 +37,10 @@
                         </table>
                 </div>
         </div>
+        
+        <div>
+        	<a href="/spring-hb/utilities">Go back to utilities</a>
+        </div>
 
 </body>
 </html>

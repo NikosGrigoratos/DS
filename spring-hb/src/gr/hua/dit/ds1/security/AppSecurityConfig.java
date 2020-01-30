@@ -46,6 +46,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 		web.ignoring().antMatchers("/student/**");
 		web.ignoring().antMatchers("/studentapp/**");
 		web.ignoring().antMatchers("/companyapp/**");
+		web.ignoring().antMatchers("/assignedjobs/**");
 	}
 	
 	@Bean

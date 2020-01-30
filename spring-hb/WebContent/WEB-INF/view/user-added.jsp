@@ -8,5 +8,6 @@
 </head>
 <body>
 User ${username} added!
+<a href="/spring-hb/utilities">Go back to utilities</a>
 </body>
 </html>

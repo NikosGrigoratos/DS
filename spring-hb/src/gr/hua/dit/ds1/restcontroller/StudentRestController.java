@@ -18,13 +18,9 @@ public class StudentRestController {
 		@Autowired
 		private StudentDAO studentDAO;
         
-        @GetMapping("/hello")
-        public String sayHello() {
-                return "Hello World!";
-        }
-        
         @GetMapping("/verify/{studentId}")
     	public Student getStudent(@PathVariable String studentId) {
+        	System.out.println(studentId);
     		Student res = studentDAO.getStudentCrids(studentId);
         	return res;
     	}

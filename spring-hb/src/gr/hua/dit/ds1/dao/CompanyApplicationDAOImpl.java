@@ -35,6 +35,19 @@ public class CompanyApplicationDAOImpl implements CompanyApplicationDAO {
         //return the results
         return companyApps;
 	}
+	
+	@Override
+	@Transactional
+	public CompanyApplication getCompanyAppById(int id) {
+		// get current hibernate session
+        Session currentSession = sessionFactory.getCurrentSession();
+        
+        // create a query
+        Query<CompanyApplication> query = currentSession.createQuery("from CompanyApplication C where C.id= :id", CompanyApplication.class);
+        query.setParameter("id", id);
+        //return the results
+        return query.getSingleResult();
+	}
 
 	@Override
 	@Transactional
